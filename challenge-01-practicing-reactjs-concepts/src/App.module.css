@@ -1,0 +1,13 @@
+.content {
+  padding: 0 22rem;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 87.5%;
+  }
+
+  .content {
+    padding: 0 1rem;
+  }
+}

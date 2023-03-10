@@ -1,0 +1,38 @@
+.task {
+  background: var(--gray-500);
+  margin-top: 1.5rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 1rem;
+}
+
+.task + .task {
+  margin-top: 0.75rem;
+}
+
+.task div {
+  width: 100%;
+  margin-right: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.task div p {
+  font-size: 0.875rem;
+}
+
+.task .completed {
+  text-decoration: line-through;
+  color: var(--gray-300);
+}
+
+.task svg {
+  color: var(--gray-300);
+}
+
+.task svg:hover {
+  color: var(--red-500);
+}

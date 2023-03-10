@@ -1,5 +1,6 @@
 import { Header } from './components/Header';
 import { CreateTask } from './components/CreateTask';
+import { TasksPanel } from './components/TasksPanel';
 
 import styles from './App.module.css';
 import './global.css';
@@ -12,6 +13,8 @@ function App() {
 
       <div className={styles.content}>
         <CreateTask />
+
+        <TasksPanel />
       </div>
     </div>
   )

@@ -1,0 +1,44 @@
+.tasksPanel {
+  margin-top: 4rem;
+}
+
+.tasksPanel header {
+  font-size: 0.875rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.tasksPanel header div {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.createdTasks strong {
+  color: var(--blue-200);
+} 
+
+.completedTasks strong {
+  color: var(--purple-500);
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.125rem 0.5rem;
+  border-radius: 999px;
+  background: var(--gray-400);
+}
+
+.emptyContent {
+  margin-top: 1.5rem;
+  padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emptyContent img {
+  margin-bottom: 1rem;
+}

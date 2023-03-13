@@ -1,31 +1,20 @@
-import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-
 import styles from './TasksPanel.module.css';
 
 import clipboardIcon from '../assets/clipboard-icon.svg';
 
 import { Task } from './Task';
 
-export function TasksPanel() {
+export interface TaskProps {
+  id: string;
+  message: string;
+  isComplete: boolean;
+}
 
-  const [tasks, setTasks] = useState([
-    {
-      id: uuidv4(),
-      message: "Study English",
-      isComplete: true
-    },
-    {
-      id: uuidv4(),
-      message: "Study NodeJS",
-      isComplete: true
-    },
-    {
-      id: uuidv4(),
-      message: "Study ReactJS",
-      isComplete: false
-    }
-  ]);
+interface TaskPanelProps {
+  tasks: TaskProps[] | [];
+}
+
+export function TasksPanel({ tasks }: TaskPanelProps) {
 
   function countCompletedTasks() {
     if(tasks.length === 0)  return 0;
@@ -60,7 +49,8 @@ export function TasksPanel() {
       {tasks && 
         tasks.map(task => {
           return (
-            <Task 
+            <Task
+              key={task.id}
               message={task.message} 
               isComplete={task.isComplete}
             />

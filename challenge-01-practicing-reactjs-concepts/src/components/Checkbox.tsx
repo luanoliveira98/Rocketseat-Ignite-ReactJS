@@ -4,7 +4,7 @@ interface CheckboxProps {
   checked?: boolean;
 }
 
-export function Checkbox({ checked = false }: CheckboxProps) {
+export function Checkbox({ checked }: CheckboxProps) {
   return (
     <label className={styles.container}>
       <input type="checkbox" checked={checked} />

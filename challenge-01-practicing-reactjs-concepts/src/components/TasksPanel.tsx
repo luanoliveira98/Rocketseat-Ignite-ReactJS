@@ -2,19 +2,14 @@ import styles from './TasksPanel.module.css';
 
 import clipboardIcon from '../assets/clipboard-icon.svg';
 
-import { Task } from './Task';
-
-export interface TaskProps {
-  id: string;
-  message: string;
-  isComplete: boolean;
-}
+import { ITask, Task } from './Task';
 
 interface TaskPanelProps {
-  tasks: TaskProps[] | [];
+  tasks: ITask[];
+  onDeleteTask: (taskId: string) => void;
 }
 
-export function TasksPanel({ tasks }: TaskPanelProps) {
+export function TasksPanel({ tasks, onDeleteTask }: TaskPanelProps) {
 
   function countCompletedTasks() {
     if(tasks.length === 0)  return 0;
@@ -51,8 +46,8 @@ export function TasksPanel({ tasks }: TaskPanelProps) {
           return (
             <Task
               key={task.id}
-              message={task.message} 
-              isComplete={task.isComplete}
+              task={task}
+              onDeleteTask={onDeleteTask}
             />
           );
         })

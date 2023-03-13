@@ -1,17 +1,18 @@
 import { ChangeEvent, FormEvent, InvalidEvent, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import './global.css';
+import styles from './App.module.css';
+
 import { Header } from './components/Header';
 import { CreateTask } from './components/CreateTask';
-import { TasksPanel, TaskProps } from './components/TasksPanel';
-
-import styles from './App.module.css';
-import './global.css';
+import { TasksPanel } from './components/TasksPanel';
+import { ITask } from './components/Task';
 
 
 function App() {
 
-  const [tasks, setTasks] = useState<TaskProps[]>([]);
+  const [tasks, setTasks] = useState<ITask[]>([]);
 
   const defaultNewTask = {
     id: uuidv4(),
@@ -19,7 +20,7 @@ function App() {
     isComplete: false
   };
 
-  const [newTaskText, setNewTaskText] = useState<TaskProps>(defaultNewTask);
+  const [newTaskText, setNewTaskText] = useState<ITask>(defaultNewTask);
 
   function handleNewTaskChange(event: ChangeEvent<HTMLInputElement>) {
     event.target.setCustomValidity("");
@@ -41,6 +42,14 @@ function App() {
     event.target.setCustomValidity("This field is required")
   }
 
+  function deleteTask(taskId: string) {
+    const tasksWithoutDeletedOne = tasks.filter(task => {
+      return task.id !== taskId
+    });
+
+    setTasks(tasksWithoutDeletedOne);
+  }
+
   return (
     <div className="App">
       <Header />
@@ -55,6 +64,7 @@ function App() {
 
         <TasksPanel 
           tasks={tasks}
+          onDeleteTask={deleteTask}
         />
       </div>
     </div>

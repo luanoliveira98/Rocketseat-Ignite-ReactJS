@@ -3,13 +3,15 @@ import styles from './TasksPanel.module.css';
 import clipboardIcon from '../assets/clipboard-icon.svg';
 
 import { ITask, Task } from './Task';
+import { ChangeEvent } from 'react';
 
 interface TaskPanelProps {
   tasks: ITask[];
   onDeleteTask: (taskId: string) => void;
+  onChangeStatusTask: (taskId: string) => void;
 }
 
-export function TasksPanel({ tasks, onDeleteTask }: TaskPanelProps) {
+export function TasksPanel({ tasks, onDeleteTask, onChangeStatusTask }: TaskPanelProps) {
 
   function countCompletedTasks() {
     if(tasks.length === 0)  return 0;
@@ -48,6 +50,7 @@ export function TasksPanel({ tasks, onDeleteTask }: TaskPanelProps) {
               key={task.id}
               task={task}
               onDeleteTask={onDeleteTask}
+              onChangeStatusTask={onChangeStatusTask}
             />
           );
         })

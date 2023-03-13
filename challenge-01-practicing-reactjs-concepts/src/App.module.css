@@ -2,7 +2,13 @@
   padding: 0 22rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+  .content {
+    padding: 0 5rem;
+  }
+}
+
+@media (max-width: 992px) {
   html {
     font-size: 87.5%;
   }

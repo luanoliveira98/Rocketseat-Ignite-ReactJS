@@ -50,6 +50,18 @@ function App() {
     setTasks(tasksWithoutDeletedOne);
   }
 
+  function handleStatusTask(taskId: string) {
+    const copyTasks = [...tasks];
+    
+    copyTasks.map(task => {
+      if(task.id === taskId) {
+        task.isComplete = !task.isComplete
+      }
+    });
+
+    setTasks(copyTasks);
+  }
+
   return (
     <div className="App">
       <Header />
@@ -65,6 +77,7 @@ function App() {
         <TasksPanel 
           tasks={tasks}
           onDeleteTask={deleteTask}
+          onChangeStatusTask={handleStatusTask}
         />
       </div>
     </div>
